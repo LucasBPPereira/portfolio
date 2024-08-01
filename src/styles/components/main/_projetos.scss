@@ -1,0 +1,108 @@
+@import "../../variaveis/variaveis.scss";
+@import "../../variaveis/fonts.scss";
+
+.link-arrow-cf {
+    display: none;
+}
+
+.link-arrow-sf {
+    display: inline;
+}
+
+#projetos__container {
+    h2 {
+        @include poppins-bold;
+        font-size: 2.5rem;
+        margin-bottom: 60px;        
+        color: #006989;
+    }
+
+    .projetos__conteudos {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+
+        .conteudo__card {
+            max-width: 21.875rem;
+            box-shadow: 8px 8px 10px #00000005;
+            border-radius: 4px;
+
+            .card_img {
+                position: relative;
+                height: 300px;
+                overflow: hidden;
+
+                .conteudo__card-img {
+                    border: 1px solid #f5f5f5;
+                    border-radius: 10px;
+                    width: 100%;
+                }
+            }
+
+            .card-img::before {
+                content: "";
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                display: block;
+                background-color: #6b6b6b3b;
+            }
+
+            .conteudo__card-links {
+                padding: 10px;
+
+                .card_link {
+                    width: 140px;
+                    text-decoration: none;
+                    position: relative;
+                    color: black;
+
+                    p {
+                        @include poppins-medium;
+                    }
+
+                    .arrow_link {
+                        position: absolute;
+                        top: 10%;
+                        right: 15px;
+                        height: 20px;
+                    }
+                }
+
+                .card_link:hover {
+
+
+                    .link-arrow-cf {
+                        display: inline;
+                    }
+
+                    .link-arrow-sf {
+                        display: none;
+                    }
+                }
+
+                .card_description {
+                    @include poppins-light;
+                    font-size: .75rem;
+                    color: #6b6b6b;
+                    margin-top: .625rem;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1110px) {
+    #projetos__container {
+        h2 {
+            text-align: center;
+        }
+
+        .projetos__conteudos {
+            padding: 0 10px;
+            gap: 1.875rem;
+            justify-content: center;
+        }
+    }
+}

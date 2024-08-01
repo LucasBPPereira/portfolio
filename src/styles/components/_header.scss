@@ -1,0 +1,223 @@
+@import "../variaveis/fonts.scss";
+@import "../variaveis/variaveis";
+
+/* background: transparent; filter: blur(0px); display: block;*/
+
+.header__container-margin {
+    margin: 5px auto 100px auto;
+    padding: 0 10px;
+    height: 120px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .glass {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 32px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        width: 1024px;
+        height: 82px;
+        position: fixed;
+        z-index: 5;
+        transition: all .2s ease;
+    }
+
+    .header__container {
+        max-width: 1000px;
+        gap: 40px;
+        padding: 15px 25px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 10px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 10;
+
+        .header__logo {
+            width: 2.3125rem;
+            height: 3.25rem;
+            transition: all .2s ease;
+
+            .logo-header {
+                position: absolute;
+                cursor: pointer;
+            }
+
+            .logo-header path {
+                transition: all .2s ease;
+            }
+
+            .logo-header:hover path {
+                fill: #00caca;
+                ;
+            }
+        }
+
+        .header__nav__container {
+            flex-grow: 1;
+            animation-name: slidetop;
+            animation-duration: .5s;
+
+            .header__nav-links {
+                @include poppins-light;
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+
+                a {
+                    font-size: 32px;
+                    color: $cor-nav-header;
+                    text-decoration: none;
+                    transition: all .5s ease;
+
+                    &:hover {
+                        font-weight: 500;
+                    }
+                }
+
+            }
+        }
+
+        .header-menu {
+            cursor: pointer;
+        }
+
+        .header__container-mobile {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .header__container-margin {
+        margin-bottom: 10px;
+
+        .glass {
+            width: 48rem;
+        }
+
+        .header__container {
+            max-width: 780px;
+        }
+    }
+}
+@media screen and (max-width: 780px) {
+    .header__container-margin {
+        .glass {
+            width: 32.75rem;
+        }
+
+        .header__container{
+            max-width: 600px;
+        }
+    }
+    
+    .header__container-margin .header__container .header__nav__container .header__nav-links a {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+
+    .header__container-margin {
+        margin: 0 auto;
+        height: 80px;
+
+        .header__container-mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background-color: #c8f5f5;
+            height: 25rem;
+            border-radius: 0 0 12px 12px;
+
+            animation-name: desceMenu;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+
+            .header__logo {
+                position: static;
+                align-self: flex-start;
+                animation-name: logoSurge;
+                animation-duration: 2.5s;
+                animation-timing-function: ease;
+            }
+
+            .header__nav__container {
+                animation-name: slideright;
+                animation-duration: 2s;
+                animation-timing-function: ease;
+
+                .header__nav-links {
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    a:hover::before {
+                        content: '⭢';
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes logoSurge {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slidetop {
+    from {
+        position: relative;
+        top: -80px;
+    }
+
+    to {
+        position: relative;
+        top: 0;
+    }
+}
+
+@keyframes slideright {
+    0% {
+        position: relative;
+        right: -170px;
+    }
+
+    50% {
+        position: relative;
+        right: -165px;
+    }
+
+    100% {
+        position: relative;
+        right: 0;
+    }
+}
+
+@keyframes desceMenu {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 25rem;
+    }
+}

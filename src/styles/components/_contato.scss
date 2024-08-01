@@ -1,0 +1,70 @@
+@import "../variaveis/fonts.scss";
+@import "../variaveis/variaveis";
+
+.contato__container-margin {
+    height: 725px;
+    background: linear-gradient(83.99deg, #FDA05D 40.26%, #FF8024 95.45%);
+    padding: 20px;
+    transition: all 1s ease;
+
+    #contato__container {
+        max-width: 46.875rem;
+        margin:  60px auto;
+        display: flex;
+        flex-direction: column;
+
+        .contato__tiutlo {
+            @include poppins-bold;
+            font-size: 40px;
+            color: #fff;
+        }
+
+        .contato__desc {
+            @include poppins-light;
+            color: #fff;
+            margin: 20px 0 50px 0;
+        }
+
+        .contato__form_container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            width: 100%;
+
+            .contato__input {
+                width: 90%;
+                padding: 20px;
+                border-radius: 8px;
+                border: 2px solid #797979;
+                @include poppins-light;
+            }
+
+            .contato__textarea {
+                width: 90%;
+                height: 150px;
+                padding: 20px;
+                border-radius: 8px;
+                border: 2px solid #797979;
+                @include poppins-light;
+            }
+
+            .btn__contato {
+                background-color: #fff;
+                color: #FF8024;
+                border-radius: 8px;
+                padding: 10px;
+                width: 214px;
+                border: none;
+                cursor: pointer;
+                @include poppins-medium;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:430px) {
+    .contato__container-margin {
+        height: 800px;
+    }
+}
